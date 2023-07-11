@@ -1,2 +1,2 @@
 #!/bin/bash
-(echo "$WATER" | tr water 01234 | { read WATER_VAL && echo "$STIR" | tr stir. 01234 | { read STIR_VAL && BESTCHOL_VAL=$((5#${WATER_VAL} + 5#${STIR_VAL})) && echo "The sum of WATER and STIR is: $(echo "obase=bestchol; ibase=10; $BESTCHOL_VAL" | dc)"; }; })
+printf "%o\n" $(( $((5#(echo $WATER | tr water 01234))) + $((5#(echo $STIR | tr stir. 01234))) )) | tr 01234567 bestchol
