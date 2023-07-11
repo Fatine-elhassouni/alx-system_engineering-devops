@@ -1,2 +1,2 @@
 #!/bin/bash
-WATER_VAL=$(echo "$WATER" | tr water 01234) STIR_VAL=$(echo "$STIR" | tr stir. 01234) BESTCHOL=$(echo "obase=bestchol; $((5#$WATER_VAL + 5#$STIR_VAL))" | bc) echo "The sum of WATER and STIR is: $BESTCHOL"
+WATER_VAL=$(echo "$WATER" | tr water 01234); STIR_VAL=$(echo "$STIR" | tr stir. 01234); BESTCHOL_VAL=$((5#${WATER_VAL} + 5#${STIR_VAL})); BESTCHOL=$(echo "obase=bestchol; ibase=10; $BESTCHOL_VAL" | dc); echo "The sum of WATER and STIR is: $BESTCHOL"
